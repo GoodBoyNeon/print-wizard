@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: printwizard
-Version: 0.1.1
+Version: 0.1.2
 Summary: A minimal yet colorful alternative to the print() function in Python, with methods like success(), warn(), info() and error()
 Author-email: GoodBoyNeon <contact@neon.is-a.dev>
 Project-URL: Homepage, https://github.com/goodboyneon/print-wizard

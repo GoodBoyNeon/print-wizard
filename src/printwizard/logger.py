@@ -34,15 +34,18 @@ style_wrapper = {
 
 
 class Helpers:
+    @staticmethod
     def get_timestamp():
         return datetime.now().strftime("%m/%d/%Y %H:%M:%S")
 
+    @staticmethod
     def get_config(override=None):
         if override:
             return {**user_config, **override}
         else:
             return user_config
 
+    @staticmethod
     def get_logging_args(config: dict, options: dict):
         status_text = {
             "error": "ERROR ",
@@ -93,6 +96,7 @@ timestamp = f"[{Helpers.get_timestamp()}]"
 
 
 class Logger:
+    @staticmethod
     def success(msg: str, config_override=None) -> str:
         status_type = "success"
         config = Helpers.get_config(config_override)
@@ -108,6 +112,7 @@ class Logger:
         print("\n")
         print(" ".join(args_list))
 
+    @staticmethod
     def info(msg: str, config_override=None) -> str:
         status_type = "info"
         config = Helpers.get_config(config_override)
@@ -122,6 +127,7 @@ class Logger:
         print("\n")
         print(" ".join(args_list))
 
+    @staticmethod
     def error(msg: str, config_override=None) -> str:
         status_type = "error"
         config = Helpers.get_config(config_override)
@@ -137,6 +143,7 @@ class Logger:
         print("\n")
         print(" ".join(args_list))
 
+    @staticmethod
     def warn(msg: str, config_override=None) -> str:
         status_type = "warn"
         config = Helpers.get_config(config_override)
