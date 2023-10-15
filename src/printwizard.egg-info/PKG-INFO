@@ -1,0 +1,27 @@
+Metadata-Version: 2.1
+Name: printwizard
+Version: 0.1.1
+Summary: A minimal yet colorful alternative to the print() function in Python, with methods like success(), warn(), info() and error()
+Author-email: GoodBoyNeon <contact@neon.is-a.dev>
+Project-URL: Homepage, https://github.com/goodboyneon/print-wizard
+Project-URL: Bug Tracker, https://github.com/goodboyneon/print-wizard/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+<div align="center">
+	<br />
+	<p>
+    <h1 align="center">🌈 Print Wizard</h1>
+  <h6 align="center">🚀 A minimal yet colorful and customizable alternative to python's default logger.</h6>
+	</p>
+	<br />
+	<p>
+    <a href="https://www.github.com/GoodBoyNeon/print-wizard"><img src="https://img.shields.io/github/issues/GoodBoyNeon/console-wizard?style=flat-square&logo=github" /></a>
+    <a href="https://www.github.com/GoodBoyNeon/print-wizard"><img src="https://img.shields.io/github/issues-pr/GoodBoyNeon/console-wizard?style=flat-square&logo=github" /></a>
+    <a href="https://www.github.com/GoodBoyNeon/print-wizard"><img src="https://img.shields.io/github/actions/workflow/status/GoodBoyNeon/console-wizard/build.yml?style=flat-square&logo=github" /></a>
+	</p>
+</div>

@@ -1,4 +1,4 @@
-from set_wizard_config import user_config
+from .set_wizard_config import user_config
 from datetime import datetime
 
 style_wrapper = {
@@ -104,6 +104,8 @@ class Logger:
                 "timestamp": timestamp,
             },
         )
+
+        print("\n")
         print(" ".join(args_list))
 
     def info(msg: str, config_override=None) -> str:
@@ -117,6 +119,7 @@ class Logger:
                 "timestamp": timestamp,
             },
         )
+        print("\n")
         print(" ".join(args_list))
 
     def error(msg: str, config_override=None) -> str:
@@ -130,6 +133,8 @@ class Logger:
                 "timestamp": timestamp,
             },
         )
+
+        print("\n")
         print(" ".join(args_list))
 
     def warn(msg: str, config_override=None) -> str:
@@ -143,7 +148,5 @@ class Logger:
                 "timestamp": timestamp,
             },
         )
+        print("\n")
         print(" ".join(args_list))
-
-
-Logger.success("adsf")

@@ -1,0 +1,10 @@
+LICENSE
+README.md
+pyproject.toml
+src/printwizard/__init__.py
+src/printwizard/logger.py
+src/printwizard/set_wizard_config.py
+src/printwizard.egg-info/PKG-INFO
+src/printwizard.egg-info/SOURCES.txt
+src/printwizard.egg-info/dependency_links.txt
+src/printwizard.egg-info/top_level.txt
