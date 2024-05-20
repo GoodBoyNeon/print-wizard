@@ -1,4 +1,3 @@
-from .set_wizard_config import user_config
 from datetime import datetime
 
 style_wrapper = {
@@ -32,6 +31,25 @@ style_wrapper = {
     "bg_gray": "\x1b[100m",
 }
 
+default_config = {
+    "include_timestamp": True,
+    "include_status": True,
+    "include_sn": True,
+    "table_border": {
+        "corner_tl": "┌",
+        "corner_tr": "┐",
+        "corner_bl": "└",
+        "corner_br": "┘",
+        "edge_vertical": "│",
+        "edge_horizontal": "─",
+        "intersection_tlr": "┴",
+        "intersection_blr": "┬",
+        "intersection_tbl": "├",
+        "intersection_tbr": "┤",
+        "intersection_center": "┼",
+    },
+}
+
 
 class Helpers:
     @staticmethod
@@ -39,11 +57,12 @@ class Helpers:
         return datetime.now().strftime("%m/%d/%Y %H:%M:%S")
 
     @staticmethod
-    def get_config(override=None):
+    def get_config(user_config: dict, override=None):
         if override:
-            return {**user_config, **override}
+            return {**default_config, **user_config, **override}
+
         else:
-            return user_config
+            return {**default_config, **user_config}
 
     @staticmethod
     def get_logging_args(config: dict, options: dict):
@@ -96,10 +115,13 @@ timestamp = f"[{Helpers.get_timestamp()}]"
 
 
 class Logger:
-    @staticmethod
-    def success(msg: str, config_override=None) -> str:
+
+    def __init__(self, config: dict = default_config):
+        self.config = config
+
+    def success(self, msg: str, config_override: dict = None) -> str:
         status_type = "success"
-        config = Helpers.get_config(config_override)
+        config = Helpers.get_config(self.config, config_override)
         args_list = Helpers.get_logging_args(
             config,
             {
@@ -112,10 +134,9 @@ class Logger:
         print("\n")
         print(" ".join(args_list))
 
-    @staticmethod
-    def info(msg: str, config_override=None) -> str:
+    def info(self, msg: str, config_override: dict = None) -> str:
         status_type = "info"
-        config = Helpers.get_config(config_override)
+        config = Helpers.get_config(self.config, config_override)
         args_list = Helpers.get_logging_args(
             config,
             {
@@ -127,26 +148,9 @@ class Logger:
         print("\n")
         print(" ".join(args_list))
 
-    @staticmethod
-    def error(msg: str, config_override=None) -> str:
-        status_type = "error"
-        config = Helpers.get_config(config_override)
-        args_list = Helpers.get_logging_args(
-            config,
-            {
-                "status_type": status_type,
-                "msg": msg,
-                "timestamp": timestamp,
-            },
-        )
-
-        print("\n")
-        print(" ".join(args_list))
-
-    @staticmethod
-    def warn(msg: str, config_override=None) -> str:
+    def warn(self, msg: str, config_override: dict = None) -> str:
         status_type = "warn"
-        config = Helpers.get_config(config_override)
+        config = Helpers.get_config(self.config, config_override)
         args_list = Helpers.get_logging_args(
             config,
             {
@@ -155,5 +159,20 @@ class Logger:
                 "timestamp": timestamp,
             },
         )
+        print("\n")
+        print(" ".join(args_list))
+
+    def error(self, msg: str, config_override: dict = None) -> str:
+        status_type = "error"
+        config = Helpers.get_config(self.config, config_override)
+        args_list = Helpers.get_logging_args(
+            config,
+            {
+                "status_type": status_type,
+                "msg": msg,
+                "timestamp": timestamp,
+            },
+        )
+
         print("\n")
         print(" ".join(args_list))
